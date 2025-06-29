@@ -91,7 +91,12 @@ const postGameMessage = document.getElementById('win-message');
 
 function winMessage(player) {
         modal.classList.toggle('hidden');
-        postGameMessage.textContent = `player: ${player.toUpperCase()} wins!`;
+
+        if (player == 'x') {
+        postGameMessage.textContent = `${playerOneName.toUpperCase()} wins!`;
+        } else {
+        postGameMessage.textContent = `${playerTwoName.toUpperCase()} wins!`;
+        }
 }
 
 function drawMessage() {
@@ -145,17 +150,20 @@ const startBtn = document.getElementById('start-btn');
 
 let playerOneColor = '#000000';
 let playerTwoColor = '#000000';
+let playerOneName;
+let playerTwoName;
+
 
     const preModal = document.querySelector('.pre-modal');
 
 startBtn.addEventListener('click', () => {
     const playerOneNameInput = document.getElementById('player-one-name');
-    const playerOneName = playerOneNameInput.value;
+    playerOneName = playerOneNameInput.value;
     const playerOneColorInput = document.getElementById('player-one-color');
     playerOneColor = playerOneColorInput.value;
 
     const playerTwoNameInput = document.getElementById('player-two-name');
-    const playerTwoName = playerTwoNameInput.value;
+    playerTwoName = playerTwoNameInput.value;
     const playerTwoColorInput = document.getElementById('player-two-color');
     playerTwoColor = playerTwoColorInput.value;
 
