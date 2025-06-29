@@ -93,9 +93,9 @@ function winMessage(player) {
         modal.classList.toggle('hidden');
 
         if (player == 'x') {
-        postGameMessage.textContent = `${playerOneName.toUpperCase()} wins!`;
+        postGameMessage.textContent = `${playerOneName} wins!`;
         } else {
-        postGameMessage.textContent = `${playerTwoName.toUpperCase()} wins!`;
+        postGameMessage.textContent = `${playerTwoName} wins!`;
         }
 }
 
@@ -132,7 +132,6 @@ const playerOneMenu = document.getElementById('player-one-menu');
 const playerTwoMenu = document.getElementById('player-two-menu');
 playerOneReady.addEventListener('click', () => {
 
-
     playerOneMenu.classList.toggle('menu-overlay');
     playerTwoMenu.classList.toggle('menu-overlay');
 
@@ -150,20 +149,24 @@ const startBtn = document.getElementById('start-btn');
 
 let playerOneColor = '#000000';
 let playerTwoColor = '#000000';
-let playerOneName;
-let playerTwoName;
+let playerOneName = 'Player X';
+let playerTwoName = 'Player Circle';
 
 
     const preModal = document.querySelector('.pre-modal');
 
 startBtn.addEventListener('click', () => {
     const playerOneNameInput = document.getElementById('player-one-name');
-    playerOneName = playerOneNameInput.value;
+    if (playerOneNameInput.value.trim() !== '') {
+        playerOneName = playerOneNameInput.value;
+    }
     const playerOneColorInput = document.getElementById('player-one-color');
     playerOneColor = playerOneColorInput.value;
 
     const playerTwoNameInput = document.getElementById('player-two-name');
-    playerTwoName = playerTwoNameInput.value;
+    if (playerTwoNameInput.value.trim() !== '') {
+        playerTwoName = playerTwpNameInput.value;
+    }
     const playerTwoColorInput = document.getElementById('player-two-color');
     playerTwoColor = playerTwoColorInput.value;
 
