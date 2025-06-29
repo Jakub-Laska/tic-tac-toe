@@ -1,3 +1,7 @@
+:root {
+    --cellSize: 100px;
+}
+
 #container {
     width: 100vw;
     height: 100vh;
@@ -13,27 +17,98 @@
     background-color: black;
 }
 .cell {
-    width: 100px;
-    height: 100px;
+    position: relative;
+    width: var(--cellSize);
+    height: var(--cellSize);
     background-color: white;
 }
 .cell:hover {
     cursor: pointer;
 }
-
-.x:hover {
-    background-color: red;
-}
-
-.o:hover {
-    background-color: blue;
-}
-.black {
-    background-color: black;
-}
-.purple {
-    background-color: purple;
-}
 .notAllowed:hover {
     cursor: not-allowed;
+}
+
+.x-mark {
+  position: relative;
+  width: var(--cellSize);
+  height: var(--cellSize);
+}
+
+.x-mark::before,
+.x-mark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 10px;
+  background-color: black;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transform-origin: center;
+}
+
+.x-mark::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.x-hover:hover:not(.x-mark):not(.o-mark):not(.o-hover)::before,
+.x-hover:hover:not(.x-mark):not(.o-mark):not(.o-hover)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 10px;
+  background-color: grey;
+  transform-origin: center;
+}
+
+.x-hover:hover:not(.x-mark):not(.o-mark):not(.o-hover)::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.x-hover:hover:not(.x-mark):not(.o-mark):not(.o-hover)::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.o-mark {
+  position: relative;
+  width: var(--cellSize);
+  height: var(--cellSize);
+}
+
+.o-mark::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  border: 10px solid black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.o-hover:hover:not(.black-mark):not(.o-mark):not(.x-hover)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  border: 10px solid grey;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+#modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, .8);
+}
+.hidden {
+  display: none;
 }
