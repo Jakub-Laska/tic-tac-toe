@@ -24,9 +24,11 @@ cells.forEach(cell => {
     if (turn === 0) {
       cell.classList.remove('o-hover');
       cell.classList.add('x-hover');
+      cell.style.setProperty('--x-hover', playerOneColor);
     } else {
       cell.classList.remove('x-hover');
       cell.classList.add('o-hover');
+      cell.style.setProperty('--o-hover', playerTwoColor);
     }
   });
 });
@@ -39,21 +41,18 @@ cells.forEach(cell => {
       return;
     }
 
-    const mark = document.createElement('div');
-
     if (turn === 0) {
       cell.classList.remove('x-hover');
-      mark.classList.add('x-mark', 'notAllowed');
-      mark.style.setProperty('--x-color', playerOneColor);
+      cell.classList.add('x-mark', 'notAllowed');
+      cell.style.setProperty('--x-color', playerOneColor);
       turn = 1;
     } else {
       cell.classList.remove('o-hover');
-      mark.classList.add('o-mark', 'notAllowed');
-      mark.style.setProperty('--o-color', playerTwoColor);
+      cell.classList.add('o-mark', 'notAllowed');
+      cell.style.setProperty('--o-color', playerTwoColor);
       turn = 0;
     }
 
-    cell.appendChild(mark);
     checkWin();
   });
 });
