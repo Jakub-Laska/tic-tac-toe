@@ -80,14 +80,23 @@ function checkWin() {
   return false;
 }
 
+const modal = document.getElementById('modal');
+
 function winMessage(player) {
-        const modal = document.getElementById('modal');
         modal.classList.toggle('hidden');
         alert(`player: ${player.toUpperCase()} wins!`);
 }
 
 function drawMessage() {
-        const modal = document.getElementById('modal');
         modal.classList.toggle('hidden');
         alert('it is a draw');
 }
+
+const restartBtn = document.getElementById('restart-btn');
+restartBtn.addEventListener('click', () => {
+    modal.classList.toggle('hidden');
+    cells.forEach(cell => {
+        cell.classList.remove('x-hover', 'o-hover', 'x-mark', 'o-mark', 'notAllowed');
+    })
+    turn = 0;
+})
