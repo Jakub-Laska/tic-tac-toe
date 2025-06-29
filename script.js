@@ -109,6 +109,19 @@ restartBtn.addEventListener('click', () => {
     turn = 0;
 })
 
+const menuBtn = document.getElementById('menu-btn');
+menuBtn.addEventListener('click', () => {
+    modal.classList.toggle('hidden');
+    preModal.classList.toggle('hidden');
+    playerOneMenu.classList.toggle('menu-overlay');
+    playerTwoMenu.classList.toggle('menu-overlay');
+        cells.forEach(cell => {
+        cell.classList.remove('x-hover', 'o-hover', 'x-mark', 'o-mark', 'notAllowed');
+    })
+    turn = 0;
+})
+
+//pre game 
 const playerOneReady = document.getElementById('player-one-ready');
 const playerOneMenu = document.getElementById('player-one-menu');
 const playerTwoMenu = document.getElementById('player-two-menu');
@@ -133,6 +146,7 @@ const startBtn = document.getElementById('start-btn');
 let playerOneColor = '#000000';
 let playerTwoColor = '#000000';
 
+    const preModal = document.querySelector('.pre-modal');
 
 startBtn.addEventListener('click', () => {
     const playerOneNameInput = document.getElementById('player-one-name');
@@ -145,6 +159,5 @@ startBtn.addEventListener('click', () => {
     const playerTwoColorInput = document.getElementById('player-two-color');
     playerTwoColor = playerTwoColorInput.value;
 
-    const preModal = document.querySelector('.pre-modal');
     preModal.classList.add('hidden');
 })
