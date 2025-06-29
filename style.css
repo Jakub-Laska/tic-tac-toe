@@ -206,6 +206,7 @@ input:not(#player-one-color):not(#player-two-color) {
   text-transform: uppercase;
   font-weight: 900;
   letter-spacing: 1px;
+    font-size: 12px;
   background-color: rgba(0, 0, 0, 0.644);
   color: white;
 }
@@ -222,5 +223,22 @@ input:not(#player-one-color):not(#player-two-color) {
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: 2px;
+}
+#stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 20vh;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  justify-content: space-between;
+  padding: 12px;
+}
+#playerOneStats,
+#playerTwoStats {
+  font-size: 32px;
+  font-weight: 900;
+  text-align: center;
 }
 

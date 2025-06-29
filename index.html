@@ -22,12 +22,22 @@
                 <p>player two</p>
                 <input type="text" id="player-two-name" placeholder="enter name">
                 <input type="color" id="player-two-color">
-                <button type="submit" id="start-btn">start game</button>
+                <button id="start-btn">start game</button>
                 <button id="back">go back</button>
             </div>
         </div>
     </div>
 <div id="container">
+    <div id="stats">
+        <div id="playerOneStats">
+              <p id="playerOneStatsName">Player X</p>
+                <p>Wins: <span id="playerOneStatsWins">0</span></p>
+        </div>
+        <div id="playerTwoStats">
+              <p id="playerTwoStatsName">Player O</p>
+            <p>Wins: <span id="playerTwoStatsWins">0</span></p>
+        </div>
+    </div>
     <div id="board">
         <div class="cell"></div>
         <div class="cell"></div>

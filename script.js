@@ -94,15 +94,23 @@ function winMessage(player) {
 
         if (player == 'x') {
         postGameMessage.textContent = `${playerOneName} wins!`;
+        postGameMessage.style.color = playerOneColor;
+        const playerOneWins = document.getElementById('playerOneStatsWins');
+        let currentWins = parseInt(playerOneWins.textContent) || 0;
+        playerOneWins.textContent = currentWins + 1;
         } else {
         postGameMessage.textContent = `${playerTwoName} wins!`;
+        postGameMessage.style.color = playerTwoColor;
+        const playerTwoWins = document.getElementById('playerTwoStatsWins');
+        let currentWins = parseInt(playerTwoWins.textContent) || 0;
+        playerTwoWins.textContent = currentWins + 1;
         }
 }
 
 function drawMessage() {
         modal.classList.toggle('hidden');
         postGameMessage.textContent = 'It is a draw!';
-
+        postGameMessage.style.color = '#fff';
 }
 
 const restartBtn = document.getElementById('restart-btn');
@@ -111,6 +119,7 @@ restartBtn.addEventListener('click', () => {
     cells.forEach(cell => {
         cell.classList.remove('x-hover', 'o-hover', 'x-mark', 'o-mark', 'notAllowed');
     })
+
     turn = 0;
 })
 
@@ -123,6 +132,12 @@ menuBtn.addEventListener('click', () => {
         cells.forEach(cell => {
         cell.classList.remove('x-hover', 'o-hover', 'x-mark', 'o-mark', 'notAllowed');
     })
+        const playerOneWins = document.getElementById('playerOneStatsWins');
+        playerOneWins.textContent = 0;
+        const playerTwoWins = document.getElementById('playerTwoStatsWins');
+        playerTwoWins.textContent = 0;
+
+
     turn = 0;
 })
 
@@ -150,7 +165,7 @@ const startBtn = document.getElementById('start-btn');
 let playerOneColor = '#000000';
 let playerTwoColor = '#000000';
 let playerOneName = 'Player X';
-let playerTwoName = 'Player Circle';
+let playerTwoName = 'Player O';
 
 
     const preModal = document.querySelector('.pre-modal');
@@ -165,10 +180,22 @@ startBtn.addEventListener('click', () => {
 
     const playerTwoNameInput = document.getElementById('player-two-name');
     if (playerTwoNameInput.value.trim() !== '') {
-        playerTwoName = playerTwpNameInput.value;
+        playerTwoName = playerTwoNameInput.value;
     }
     const playerTwoColorInput = document.getElementById('player-two-color');
     playerTwoColor = playerTwoColorInput.value;
 
+    const playerOneStatsName = document.getElementById('playerOneStatsName');
+
+    playerOneStatsName.textContent = `Player: ${playerOneName}`;
+    playerOneStatsName.style.color = playerOneColor;
+
+    const playerTwoStatsName = document.getElementById('playerTwoStatsName');
+
+    playerTwoStatsName.textContent = `Player: ${playerTwoName}`;
+    playerTwoStatsName.style.color = playerTwoColor;
+
+
     preModal.classList.add('hidden');
 })
+
