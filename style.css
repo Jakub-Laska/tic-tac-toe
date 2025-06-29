@@ -1,0 +1,39 @@
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 4px;
+    background-color: black;
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+.cell:hover {
+    cursor: pointer;
+}
+
+.x:hover {
+    background-color: red;
+}
+
+.o:hover {
+    background-color: blue;
+}
+.black {
+    background-color: black;
+}
+.purple {
+    background-color: purple;
+}
+.notAllowed:hover {
+    cursor: not-allowed;
+}
