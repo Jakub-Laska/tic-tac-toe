@@ -80,6 +80,8 @@ function checkWin() {
   return false;
 }
 
+// post game
+
 const modal = document.querySelector('.modal');
 const postGameMessage = document.getElementById('win-message');
 

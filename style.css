@@ -117,3 +117,23 @@
 .hidden {
   display: none;
 }
+#restart-btn {
+  padding: 1vw 2vw;
+  border: solid 2px white;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background-color: rgba(0, 0, 0, 0.644);
+}
+#restart-btn:hover {
+  border: solid 2px black;
+    background-color: white;
+    color: black;
+}
+#win-message {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  
+}
