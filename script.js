@@ -80,16 +80,18 @@ function checkWin() {
   return false;
 }
 
-const modal = document.getElementById('modal');
+const modal = document.querySelector('.modal');
+const postGameMessage = document.getElementById('win-message');
 
 function winMessage(player) {
         modal.classList.toggle('hidden');
-        alert(`player: ${player.toUpperCase()} wins!`);
+        postGameMessage.textContent = `player: ${player.toUpperCase()} wins!`;
 }
 
 function drawMessage() {
         modal.classList.toggle('hidden');
-        alert('it is a draw');
+        postGameMessage.textContent = 'It is a draw!';
+
 }
 
 const restartBtn = document.getElementById('restart-btn');
