@@ -35,20 +35,25 @@ cells.forEach(cell => {
 // click
 cells.forEach(cell => {
   cell.addEventListener('click', () => {
-        if (cell.classList.contains('x-mark') || cell.classList.contains('o-mark')) {
+    if (cell.classList.contains('x-mark') || cell.classList.contains('o-mark')) {
       return;
     }
 
+    const mark = document.createElement('div');
 
     if (turn === 0) {
-        cell.classList.remove('x-hover');
-        cell.classList.add('x-mark', 'notAllowed');
-        turn = 1;
+      cell.classList.remove('x-hover');
+      mark.classList.add('x-mark', 'notAllowed');
+      mark.style.setProperty('--x-color', playerOneColor);
+      turn = 1;
     } else {
       cell.classList.remove('o-hover');
-        cell.classList.add('o-mark', 'notAllowed');
-        turn = 0;
+      mark.classList.add('o-mark', 'notAllowed');
+      mark.style.setProperty('--o-color', playerTwoColor);
+      turn = 0;
     }
+
+    cell.appendChild(mark);
     checkWin();
   });
 });
@@ -82,7 +87,7 @@ function checkWin() {
 
 // post game
 
-const modal = document.querySelector('.modal');
+const modal = document.querySelector('.post-modal');
 const postGameMessage = document.getElementById('win-message');
 
 function winMessage(player) {
@@ -103,4 +108,44 @@ restartBtn.addEventListener('click', () => {
         cell.classList.remove('x-hover', 'o-hover', 'x-mark', 'o-mark', 'notAllowed');
     })
     turn = 0;
+})
+
+const playerOneReady = document.getElementById('player-one-ready');
+const playerOneMenu = document.getElementById('player-one-menu');
+const playerTwoMenu = document.getElementById('player-two-menu');
+playerOneReady.addEventListener('click', () => {
+
+
+    playerOneMenu.classList.toggle('menu-overlay');
+    playerTwoMenu.classList.toggle('menu-overlay');
+
+})
+
+const backBtn = document.getElementById('back');
+
+backBtn.addEventListener('click', () => {
+    playerOneMenu.classList.toggle('menu-overlay');
+    playerTwoMenu.classList.toggle('menu-overlay');
+})
+
+const startBtn = document.getElementById('start-btn');
+
+
+let playerOneColor = '#000000';
+let playerTwoColor = '#000000';
+
+
+startBtn.addEventListener('click', () => {
+    const playerOneNameInput = document.getElementById('player-one-name');
+    const playerOneName = playerOneNameInput.value;
+    const playerOneColorInput = document.getElementById('player-one-color');
+    playerOneColor = playerOneColorInput.value;
+
+    const playerTwoNameInput = document.getElementById('player-two-name');
+    const playerTwoName = playerTwoNameInput.value;
+    const playerTwoColorInput = document.getElementById('player-two-color');
+    playerTwoColor = playerTwoColorInput.value;
+
+    const preModal = document.querySelector('.pre-modal');
+    preModal.classList.add('hidden');
 })

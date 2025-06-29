@@ -10,9 +10,22 @@
   <script src="script.js" type="module" defer></script>
 </head>
 <body>
-    <div class="modal hidden">
-        <p id="win-message"></p>
-        <button id="restart-btn">restart</button>
+    <div class="pre-modal">
+        <div id="menu">
+            <div id="player-one-menu">
+                <p>Player one</p>
+                <input type="text" id="player-one-name" placeholder="enter name" required>
+                <input type="color" id="player-one-color">
+                <button id="player-one-ready">ready</button>
+            </div>
+            <div id="player-two-menu" class="menu-overlay">
+                <p>player two</p>
+                <input type="text" id="player-two-name" placeholder="enter name" required>
+                <input type="color" id="player-two-color">
+                <button id="start-btn">start game</button>
+                <button id="back">go back</button>
+            </div>
+        </div>
     </div>
 <div id="container">
     <div id="board">
@@ -27,5 +40,10 @@
         <div class="cell"></div>
     </div>
 </div>
+    <div class="post-modal hidden">
+        <p id="win-message"></p>
+        <button id="restart-btn">restart</button>
+        <button id="menu-btn">menu</button>
+    </div>
 </body>
 </html>
